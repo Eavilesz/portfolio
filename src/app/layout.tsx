@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 
 import "./globals.css";
 import { SiteHeader } from "@/components/layout/site-header";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,7 +27,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={[
           geistSans.variable,
@@ -34,15 +35,22 @@ export default function RootLayout({
           "min-h-dvh font-sans antialiased",
         ].join(" ")}
       >
-        <a href="#content" className="sr-only focus:not-sr-only">
-          Skip to content
-        </a>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <a href="#content" className="sr-only focus:not-sr-only">
+            Skip to content
+          </a>
 
-        <SiteHeader />
+          <SiteHeader />
 
-        <main id="content" className="mx-auto max-w-5xl px-4 py-10">
-          {children}
-        </main>
+          <main id="content" className="mx-auto max-w-5xl px-4 py-10">
+            {children}
+          </main>
+        </ThemeProvider>
       </body>
     </html>
   );

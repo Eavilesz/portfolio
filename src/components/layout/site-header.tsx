@@ -9,6 +9,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { ModeToggle } from "../mode-toggle";
 
 const navItems = [
   { href: "#projects", label: "Projects" },
@@ -40,6 +41,7 @@ export function SiteHeader() {
           <Button asChild size="sm">
             <Link href="#contact">Contact</Link>
           </Button>
+          <ModeToggle />
         </nav>
 
         {/* Mobile nav */}
