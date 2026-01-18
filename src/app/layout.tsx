@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 
 import "./globals.css";
 import { SiteHeader } from "@/components/layout/site-header";
+import { SiteFooter } from "@/components/layout/site-footer";
 import { ThemeProvider } from "@/components/theme-provider";
 
 const geistSans = Geist({
@@ -50,6 +51,8 @@ export default function RootLayout({
           <main id="content" className="mx-auto max-w-5xl px-4 py-10">
             {children}
           </main>
+
+          <SiteFooter />
         </ThemeProvider>
       </body>
     </html>
