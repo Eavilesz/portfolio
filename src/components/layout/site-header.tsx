@@ -22,7 +22,10 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur">
       <div className="mx-auto flex h-14 max-w-5xl items-center justify-between px-4">
-        <Link href="/" className="font-medium tracking-tight">
+        <Link
+          href="/"
+          className="font-medium tracking-tight text-foreground hover:text-primary transition-colors"
+        >
           Ernesto Aviles
         </Link>
 
@@ -32,13 +35,17 @@ export function SiteHeader() {
             <Link
               key={item.href}
               href={item.href}
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              className="text-sm text-muted-foreground hover:text-primary transition-colors"
             >
               {item.label}
             </Link>
           ))}
 
-          <Button asChild size="sm">
+          <Button
+            asChild
+            size="sm"
+            className="bg-primary text-primary-foreground hover:bg-primary/90"
+          >
             <Link href="#contact">Contact</Link>
           </Button>
           <ModeToggle />
@@ -63,14 +70,17 @@ export function SiteHeader() {
                     key={item.href}
                     asChild
                     variant="ghost"
-                    className="justify-start"
+                    className="justify-start hover:text-primary"
                   >
                     <Link href={item.href}>{item.label}</Link>
                   </Button>
                 ))}
 
                 <div className="mt-2">
-                  <Button asChild className="w-full">
+                  <Button
+                    asChild
+                    className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+                  >
                     <Link href="#contact">Contact</Link>
                   </Button>
                 </div>
