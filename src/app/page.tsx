@@ -1,7 +1,13 @@
+import Hero from "@/components/hero";
+import ChatSection from "@/components/chat-section";
+import WorkTeaser from "@/components/work-teaser";
+
 export default function Home() {
   return (
-    <div>
-      <h1>Welcome to My Next.js App</h1>
-    </div>
+    <main>
+      <Hero />
+      <ChatSection />
+      <WorkTeaser />
+    </main>
   );
 }
