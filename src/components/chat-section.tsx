@@ -3,6 +3,7 @@
 import { useState, type FormEvent } from "react";
 import { useChat } from "@ai-sdk/react";
 import { DefaultChatTransport, isTextUIPart, type UIMessage } from "ai";
+import Markdown from "react-markdown";
 
 const initialMessages: UIMessage[] = [
   {
@@ -84,10 +85,10 @@ export default function ChatSection() {
                     className={
                       message.role === "user"
                         ? "max-w-[72%] rounded-xl rounded-br-[3px] border border-line bg-user-bubble px-3.75 py-3 text-sm leading-[1.55]"
-                        : "max-w-[72%] rounded-xl rounded-bl-[3px] border border-line bg-surface-2 px-3.75 py-3 text-sm leading-[1.55]"
+                        : "max-w-[72%] rounded-xl rounded-bl-[3px] border border-line bg-surface-2 px-3.75 py-3 text-sm leading-[1.55] [&_a]:underline [&_code]:rounded [&_code]:bg-bg [&_code]:px-1 [&_code]:py-0.5 [&_ol]:list-decimal [&_ol]:pl-5 [&_p+p]:mt-2.5 [&_strong]:font-semibold [&_ul]:list-disc [&_ul]:pl-5"
                     }
                   >
-                    {text}
+                    {message.role === "user" ? text : <Markdown>{text}</Markdown>}
                   </div>
                 </div>
               );

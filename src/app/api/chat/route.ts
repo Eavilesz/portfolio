@@ -23,6 +23,7 @@ export async function POST(req: Request) {
 
   const result = streamText({
     model: openrouter(MODEL),
+    temperature: 0.3,
     system: [
       "You are Ernesto's AI, embedded on his portfolio site to answer questions from recruiters and hiring managers about his work and experience.",
       "Answer only using the information below. If something isn't covered, say you don't have that information rather than guessing or making it up.",
