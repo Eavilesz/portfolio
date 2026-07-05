@@ -1,4 +1,46 @@
+"use client";
+
+import { useState, type FormEvent } from "react";
+import { useChat } from "@ai-sdk/react";
+import { DefaultChatTransport, isTextUIPart, type UIMessage } from "ai";
+import Markdown from "react-markdown";
+
+const initialMessages: UIMessage[] = [
+  {
+    id: "welcome",
+    role: "assistant",
+    parts: [
+      {
+        type: "text",
+        text: "Ask me anything about Ernesto's experience, stack, or projects.",
+      },
+    ],
+  },
+];
+
+function messageText(message: UIMessage) {
+  return message.parts
+    .filter(isTextUIPart)
+    .map((part) => part.text)
+    .join("");
+}
+
 export default function ChatSection() {
+  const [input, setInput] = useState("");
+  const { messages, sendMessage, status } = useChat({
+    transport: new DefaultChatTransport({ api: "/api/chat" }),
+    messages: initialMessages,
+  });
+
+  const isBusy = status === "submitted" || status === "streaming";
+
+  function handleSubmit(e: FormEvent) {
+    e.preventDefault();
+    if (!input.trim() || isBusy) return;
+    sendMessage({ text: input });
+    setInput("");
+  }
+
   return (
     <section id="chat" className="px-6 pt-5 pb-22 md:px-8">
       <div className="mx-auto max-w-295">
@@ -28,44 +70,64 @@ export default function ChatSection() {
           </div>
 
           <div className="flex min-h-55 flex-col gap-4 px-5.5 py-6.5">
-            <div className="flex justify-end">
-              <div className="max-w-[72%] rounded-xl rounded-br-[3px] border border-line bg-user-bubble px-3.75 py-3 text-sm leading-[1.55]">
-                What&apos;s your experience shipping AI features to
-                production, not just prototypes?
+            {messages.map((message) => {
+              const text = messageText(message);
+              if (!text) return null;
+
+              return (
+                <div
+                  key={message.id}
+                  className={
+                    message.role === "user" ? "flex justify-end" : "flex justify-start"
+                  }
+                >
+                  <div
+                    className={
+                      message.role === "user"
+                        ? "max-w-[72%] rounded-xl rounded-br-[3px] border border-line bg-user-bubble px-3.75 py-3 text-sm leading-[1.55]"
+                        : "max-w-[72%] rounded-xl rounded-bl-[3px] border border-line bg-surface-2 px-3.75 py-3 text-sm leading-[1.55] [&_a]:underline [&_code]:rounded [&_code]:bg-bg [&_code]:px-1 [&_code]:py-0.5 [&_ol]:list-decimal [&_ol]:pl-5 [&_p+p]:mt-2.5 [&_strong]:font-semibold [&_ul]:list-disc [&_ul]:pl-5"
+                    }
+                  >
+                    {message.role === "user" ? text : <Markdown>{text}</Markdown>}
+                  </div>
+                </div>
+              );
+            })}
+
+            {isBusy && (
+              <div className="flex justify-start">
+                <div className="flex items-center gap-1.5 rounded-xl rounded-bl-[3px] border border-line bg-surface-2 px-3.75 py-3">
+                  <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-slate-soft [animation-delay:-0.3s]" />
+                  <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-slate-soft [animation-delay:-0.15s]" />
+                  <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-slate-soft" />
+                </div>
               </div>
-            </div>
-            <div className="flex justify-start">
-              <div className="max-w-[72%] rounded-xl rounded-bl-[3px] border border-line bg-surface-2 px-3.75 py-3 text-sm leading-[1.55]">
-                I&apos;ve taken LLM-backed features end-to-end — from prompt
-                design to shipping and monitoring in production. Most
-                recently, an AI-powered ticket triage system that cut
-                first-response time by 40%.
-                <span className="mt-2.5 inline-flex items-center gap-1.5 rounded-lg border border-line-strong px-2.5 py-1.5 font-mono text-xs text-accent">
-                  → Ticket Triage System
-                </span>
-              </div>
-            </div>
-            <div className="flex justify-end">
-              <div className="max-w-[72%] rounded-xl rounded-br-[3px] border border-line bg-user-bubble px-3.75 py-3 text-sm leading-[1.55]">
-                Nice — what&apos;s your full-stack background look like?
-              </div>
-            </div>
+            )}
           </div>
 
-          <div className="flex items-center gap-2.5 border-t border-line px-4.5 py-3.5">
-            <div className="flex-1 rounded-[10px] border border-line-strong bg-bg px-3.5 py-2.75 font-mono text-[13.5px] text-slate-soft">
-              Ask about a project, my stack, or how I work…
-            </div>
-            <div
-              aria-hidden
-              className="flex h-9.5 w-9.5 flex-shrink-0 items-center justify-center rounded-[10px] bg-accent text-accent-ink"
+          <form
+            onSubmit={handleSubmit}
+            className="flex items-center gap-2.5 border-t border-line px-4.5 py-3.5"
+          >
+            <input
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              disabled={isBusy}
+              placeholder="Ask about a project, my stack, or how I work…"
+              className="flex-1 rounded-[10px] border border-line-strong bg-bg px-3.5 py-2.75 font-mono text-[13.5px] text-ink placeholder:text-slate-soft focus:outline-none disabled:opacity-60"
+            />
+            <button
+              type="submit"
+              disabled={isBusy || !input.trim()}
+              aria-label="Send"
+              className="flex h-9.5 w-9.5 shrink-0 items-center justify-center rounded-[10px] bg-accent text-accent-ink disabled:opacity-50"
             >
               ↑
-            </div>
-          </div>
+            </button>
+          </form>
         </div>
         <p className="mt-3.5 font-mono text-[11.5px] text-slate-soft">
-          runs on an open-source model · no data leaves this session
+          runs on an open-source model via OpenRouter · grounded in the info above
         </p>
       </div>
     </section>
