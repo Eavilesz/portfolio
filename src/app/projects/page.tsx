@@ -30,7 +30,7 @@ export default function ProjectsPage() {
   return (
     <main className="px-6 pt-16 pb-24 md:px-8">
       <div className="mx-auto max-w-295">
-        <span className="mb-4 block font-mono text-xs tracking-[0.09em] text-accent uppercase">
+        <span className="mb-4 block font-mono text-xs tracking-[0.09em] text-accent-2 uppercase">
           Selected work
         </span>
         <h1 className="mb-3 text-[2rem] font-[650] tracking-[-0.02em] text-balance md:text-[2.5rem]">
@@ -46,7 +46,7 @@ export default function ProjectsPage() {
               key={project.title}
               className="rounded-2xl border border-line bg-surface p-5"
             >
-              <span className="font-mono text-[10.5px] tracking-[0.06em] text-accent uppercase">
+              <span className="font-mono text-[10.5px] tracking-[0.06em] text-accent-2 uppercase">
                 {project.tag}
               </span>
               <h2 className="mt-2.5 mb-2 text-[15.5px] font-semibold tracking-[-0.01em]">

@@ -19,7 +19,7 @@ export default function Hero() {
 
       <div className="relative mx-auto max-w-295 px-6 md:px-8">
         <div className="max-w-165">
-          <span className="mb-4.5 block font-mono text-xs tracking-[0.09em] text-accent uppercase">
+          <span className="mb-4.5 block font-mono text-xs tracking-[0.09em] text-accent-2 uppercase">
             AI Enablement Engineer
           </span>
           <h1 className="mb-5 text-[2.3rem] leading-[1.08] font-[650] tracking-[-0.025em] text-balance md:text-6xl">
