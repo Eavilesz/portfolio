@@ -4,11 +4,14 @@ export default function Nav() {
   return (
     <header className="border-b border-line">
       <div className="mx-auto flex max-w-295 items-center justify-between px-6 py-5 md:px-8">
-        <Link href="/" className="flex items-center gap-2.5 text-sm font-semibold tracking-tight">
+        <Link
+          href="/"
+          className="flex items-center gap-2.5 text-sm font-semibold tracking-tight"
+        >
           <span className="flex h-6.5 w-6.5 items-center justify-center rounded-[7px] bg-accent font-mono text-[11px] font-bold text-accent-ink">
             EA
           </span>
-          Ernesto
+          Ernesto Avilés
         </Link>
 
         <nav className="hidden items-center gap-7 text-[13.5px] text-slate md:flex">
