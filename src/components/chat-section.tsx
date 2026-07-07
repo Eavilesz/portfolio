@@ -53,78 +53,84 @@ export default function ChatSection() {
           </span>
         </div>
 
-        <div className="overflow-hidden rounded-2xl border border-line bg-surface shadow-[0_20px_60px_-25px_rgba(10,15,30,0.35)] dark:shadow-[0_20px_60px_-25px_rgba(0,0,0,0.6)]">
-          <div className="flex items-center justify-between border-b border-line bg-surface-2 px-5.5 py-4">
-            <div className="flex items-center gap-3">
-              <span className="h-2 w-2 rounded-full bg-emerald-500 ring-3 ring-emerald-500/20" />
-              <div>
-                <div className="text-sm font-semibold">Ernesto&apos;s AI</div>
-                <div className="mt-0.5 text-xs text-slate">
-                  Grounded in this site&apos;s content only
-                </div>
-              </div>
-            </div>
-            <span className="rounded-full border border-line-strong px-2.5 py-1 font-mono text-[11px] text-slate">
-              open-source model
-            </span>
-          </div>
-
-          <div className="flex min-h-55 flex-col gap-4 px-5.5 py-6.5">
-            {messages.map((message) => {
-              const text = messageText(message);
-              if (!text) return null;
-
-              return (
-                <div
-                  key={message.id}
-                  className={
-                    message.role === "user" ? "flex justify-end" : "flex justify-start"
-                  }
-                >
-                  <div
-                    className={
-                      message.role === "user"
-                        ? "max-w-[72%] rounded-xl rounded-br-[3px] border border-line bg-user-bubble px-3.75 py-3 text-sm leading-[1.55]"
-                        : "max-w-[72%] rounded-xl rounded-bl-[3px] border border-line bg-surface-2 px-3.75 py-3 text-sm leading-[1.55] [&_a]:underline [&_code]:rounded [&_code]:bg-bg [&_code]:px-1 [&_code]:py-0.5 [&_ol]:list-decimal [&_ol]:pl-5 [&_p+p]:mt-2.5 [&_strong]:font-semibold [&_ul]:list-disc [&_ul]:pl-5"
-                    }
-                  >
-                    {message.role === "user" ? text : <Markdown>{text}</Markdown>}
+        <div className="relative">
+          <div
+            aria-hidden
+            className="pointer-events-none absolute -inset-8 -z-10 rounded-[2.5rem] bg-accent/14 blur-[70px]"
+          />
+          <div className="overflow-hidden rounded-2xl border border-accent/25 bg-surface shadow-[0_25px_70px_-25px_var(--accent-glow)] ring-1 ring-accent/10">
+            <div className="flex items-center justify-between border-b border-accent/15 bg-gradient-to-r from-accent/12 via-surface-2 to-surface-2 px-5.5 py-4">
+              <div className="flex items-center gap-3">
+                <span className="h-2 w-2 rounded-full bg-emerald-500 ring-3 ring-emerald-500/20" />
+                <div>
+                  <div className="text-sm font-semibold">Ernesto&apos;s AI</div>
+                  <div className="mt-0.5 text-xs text-slate">
+                    Grounded in this site&apos;s content only
                   </div>
                 </div>
-              );
-            })}
-
-            {isBusy && (
-              <div className="flex justify-start">
-                <div className="flex items-center gap-1.5 rounded-xl rounded-bl-[3px] border border-line bg-surface-2 px-3.75 py-3">
-                  <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-slate-soft [animation-delay:-0.3s]" />
-                  <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-slate-soft [animation-delay:-0.15s]" />
-                  <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-slate-soft" />
-                </div>
               </div>
-            )}
-          </div>
+              <span className="rounded-full border border-accent/25 px-2.5 py-1 font-mono text-[11px] text-slate">
+                open-source model
+              </span>
+            </div>
 
-          <form
-            onSubmit={handleSubmit}
-            className="flex items-center gap-2.5 border-t border-line px-4.5 py-3.5"
-          >
-            <input
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              disabled={isBusy}
-              placeholder="Ask about a project, my stack, or how I work…"
-              className="flex-1 rounded-[10px] border border-line-strong bg-bg px-3.5 py-2.75 font-mono text-[13.5px] text-ink placeholder:text-slate-soft focus:outline-none disabled:opacity-60"
-            />
-            <button
-              type="submit"
-              disabled={isBusy || !input.trim()}
-              aria-label="Send"
-              className="flex h-9.5 w-9.5 shrink-0 items-center justify-center rounded-[10px] bg-accent text-accent-ink disabled:opacity-50"
+            <div className="flex min-h-55 flex-col gap-4 px-5.5 py-6.5">
+              {messages.map((message) => {
+                const text = messageText(message);
+                if (!text) return null;
+
+                return (
+                  <div
+                    key={message.id}
+                    className={
+                      message.role === "user" ? "flex justify-end" : "flex justify-start"
+                    }
+                  >
+                    <div
+                      className={
+                        message.role === "user"
+                          ? "max-w-[72%] rounded-xl rounded-br-[3px] border border-line bg-user-bubble px-3.75 py-3 text-sm leading-[1.55]"
+                          : "max-w-[72%] rounded-xl rounded-bl-[3px] border border-line bg-surface-2 px-3.75 py-3 text-sm leading-[1.55] [&_a]:underline [&_code]:rounded [&_code]:bg-bg [&_code]:px-1 [&_code]:py-0.5 [&_ol]:list-decimal [&_ol]:pl-5 [&_p+p]:mt-2.5 [&_strong]:font-semibold [&_ul]:list-disc [&_ul]:pl-5"
+                      }
+                    >
+                      {message.role === "user" ? text : <Markdown>{text}</Markdown>}
+                    </div>
+                  </div>
+                );
+              })}
+
+              {isBusy && (
+                <div className="flex justify-start">
+                  <div className="flex items-center gap-1.5 rounded-xl rounded-bl-[3px] border border-line bg-surface-2 px-3.75 py-3">
+                    <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-slate-soft [animation-delay:-0.3s]" />
+                    <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-slate-soft [animation-delay:-0.15s]" />
+                    <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-slate-soft" />
+                  </div>
+                </div>
+              )}
+            </div>
+
+            <form
+              onSubmit={handleSubmit}
+              className="flex items-center gap-2.5 border-t border-accent/15 px-4.5 py-3.5"
             >
-              ↑
-            </button>
-          </form>
+              <input
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                disabled={isBusy}
+                placeholder="Ask about a project, my stack, or how I work…"
+                className="flex-1 rounded-[10px] border border-line-strong bg-bg px-3.5 py-2.75 font-mono text-[13.5px] text-ink placeholder:text-slate-soft focus:outline-none disabled:opacity-60"
+              />
+              <button
+                type="submit"
+                disabled={isBusy || !input.trim()}
+                aria-label="Send"
+                className="flex h-9.5 w-9.5 shrink-0 items-center justify-center rounded-[10px] bg-accent text-accent-ink disabled:opacity-50"
+              >
+                ↑
+              </button>
+            </form>
+          </div>
         </div>
         <p className="mt-3.5 font-mono text-[11.5px] text-slate-soft">
           runs on an open-source model via OpenRouter · grounded in the info above
