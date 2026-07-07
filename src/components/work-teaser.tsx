@@ -2,22 +2,16 @@ import Link from "next/link";
 
 const projects = [
   {
-    tag: "AI Automation",
-    title: "Ticket Triage System",
-    description:
-      "An AI-powered system that classifies and routes support tickets, cutting response time by 40%.",
-  },
-  {
-    tag: "AI Search",
-    title: "DocQL",
-    description:
-      "A chat-based query layer over internal docs, grounded with citations back to source.",
-  },
-  {
     tag: "Full-stack",
-    title: "PixelForge",
+    title: "Picselectr",
     description:
-      "A full-stack SaaS for on-demand image pipelines, from queueing to billing.",
+      "A photo-selection tool for photographers — clients pick their event photos via a PIN-protected link. Live with a real studio's clients.",
+  },
+  {
+    tag: "Applied AI",
+    title: "This portfolio's AI chat",
+    description:
+      "The chat on this site, grounded strictly in my résumé data — a working example of the applied-AI integration work I do, not just a claim.",
   },
 ];
 
@@ -34,7 +28,7 @@ export default function WorkTeaser() {
           </Link>
         </div>
 
-        <div className="mt-4.5 grid grid-cols-1 gap-4.5 md:grid-cols-3">
+        <div className="mt-4.5 grid grid-cols-1 gap-4.5 md:grid-cols-2">
           {projects.map((project) => (
             <Link
               key={project.title}
