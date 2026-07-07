@@ -13,7 +13,7 @@
   --accent-2-ink: #ffffff;
   --line: rgba(10, 15, 30, 0.1);
   --line-strong: rgba(10, 15, 30, 0.18);
-  --chip-bg: rgba(168, 83, 46, 0.07);
+  --chip-bg: rgba(75, 85, 104, 0.06);
   --user-bubble: rgba(47, 95, 229, 0.09);
   --grid-line: rgba(168, 83, 46, 0.09);
   --accent-glow: rgba(47, 95, 229, 0.3);
@@ -33,7 +33,7 @@
     --accent-2-ink: #1f0f08;
     --line: rgba(255, 255, 255, 0.1);
     --line-strong: rgba(255, 255, 255, 0.2);
-    --chip-bg: rgba(217, 119, 87, 0.12);
+    --chip-bg: rgba(157, 171, 201, 0.12);
     --user-bubble: rgba(108, 147, 245, 0.14);
     --grid-line: rgba(217, 119, 87, 0.12);
     --accent-glow: rgba(108, 147, 245, 0.28);

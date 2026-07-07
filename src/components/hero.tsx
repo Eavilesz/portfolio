@@ -1,4 +1,4 @@
-const stack = ["Next.js", "TypeScript", "Node.js", "Python", "PostgreSQL"];
+const stack = ["React", "Next.js", "TypeScript", "Node.js", "Python"];
 
 export default function Hero() {
   return (
