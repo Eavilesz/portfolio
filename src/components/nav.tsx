@@ -27,7 +27,8 @@ export default function Nav() {
         </nav>
 
         <a
-          href="#"
+          href="/Ernesto Aviles - Resume.pdf"
+          download="Ernesto Aviles - Resume.pdf"
           className="rounded-full border border-line-strong px-3.5 py-2 text-[13px] font-semibold text-ink"
         >
           Résumé ↗
