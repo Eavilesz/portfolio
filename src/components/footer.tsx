@@ -4,17 +4,21 @@ export default function Footer() {
       <div className="mx-auto flex max-w-295 items-center justify-between text-[12.5px] text-slate-soft">
         <span className="font-mono">© 2026 Ernesto</span>
         <div className="flex gap-5">
-          <a href="#" className="text-slate transition-colors hover:text-ink">
-            GitHub
-          </a>
-          <a href="#" className="text-slate transition-colors hover:text-ink">
-            LinkedIn
-          </a>
           <a
-            href="mailto:ernesto-av@hotmail.com"
+            href="https://github.com/Eavilesz"
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-slate transition-colors hover:text-ink"
           >
-            Email
+            GitHub
+          </a>
+          <a
+            href="https://www.linkedin.com/in/ernesto-aviles-zavala/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-slate transition-colors hover:text-ink"
+          >
+            LinkedIn
           </a>
         </div>
       </div>
