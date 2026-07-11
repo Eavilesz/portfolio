@@ -4,7 +4,9 @@
 
 A full-stack, bilingual portfolio site with a twist: instead of a static résumé, it embeds an AI chat that answers recruiter questions live, grounded strictly in my actual experience — a working demo of applied-AI integration, not just a bullet point on a resume.
 
-![Home page — hero and AI chat](public/screenshots/home-hero.png)
+| ![Home page — hero and AI chat](public/screenshots/home-hero.png) | ![AI chat answering a question about a project, grounded in profile.md](public/screenshots/chat-demo.png) |
+| --- | --- |
+| ![Projects page listing Picselectr and the AI chat](public/screenshots/projects.png) | |
 
 ## Why this repo is more than a template
 
@@ -13,8 +15,6 @@ Most portfolios are a static page. This one is a small full-stack app that demon
 - **Grounded AI chat, not a chatbot wrapper.** [`src/app/api/chat/route.ts`](src/app/api/chat/route.ts) streams responses from an LLM via [Vercel AI SDK](https://sdk.vercel.ai/) over an OpenAI-compatible endpoint ([OpenRouter](https://openrouter.ai/)), with the system prompt built from [`content/profile.md`](content/profile.md) at request time. The model is instructed to answer only from that content and decline anything else — no hallucinated experience.
 - **Real internationalization**, not a translated title tag. Every string is routed through [`next-intl`](https://next-intl.dev/) with locale-aware cookies and middleware, fully supporting English and Spanish ([`messages/en.json`](messages/en.json) / [`messages/es.json`](messages/es.json)).
 - **Modern App Router architecture** using React Server Components, streaming, and Next.js 16 conventions rather than a bolted-on SPA.
-
-![AI chat answering a question about a project, grounded in profile.md](public/screenshots/chat-demo.png)
 
 ## Tech stack
 
