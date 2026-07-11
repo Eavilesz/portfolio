@@ -35,9 +35,24 @@ export default function Nav() {
           <a
             href="/Ernesto Aviles - Resume.pdf"
             download="Ernesto Aviles - Resume.pdf"
-            className="rounded-full border border-line-strong px-3.5 py-2 text-[13px] font-semibold text-ink"
+            className="flex items-center gap-1.5 rounded-full border border-line-strong px-3.5 py-2 text-[13px] font-semibold text-ink"
           >
             {t("resume")}
+            <svg
+              width="12"
+              height="12"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+              className="shrink-0"
+            >
+              <path d="M7 17 17 7" />
+              <path d="M7 7h10v10" />
+            </svg>
           </a>
         </div>
       </div>
