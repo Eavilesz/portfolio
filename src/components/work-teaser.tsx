@@ -3,6 +3,11 @@ import { useTranslations } from "next-intl";
 
 const projectKeys = ["picselectr", "aiChat"] as const;
 
+const projectLinks: Record<(typeof projectKeys)[number], string> = {
+  picselectr: "https://github.com/Eavilesz/picselectr#picselectr",
+  aiChat: "/projects",
+};
+
 export default function WorkTeaser() {
   const t = useTranslations("work");
 
@@ -19,10 +24,15 @@ export default function WorkTeaser() {
         </div>
 
         <div className="mt-4.5 grid grid-cols-1 gap-4.5 md:grid-cols-2">
-          {projectKeys.map((key) => (
+          {projectKeys.map((key) => {
+            const href = projectLinks[key];
+            const isExternal = href.startsWith("http");
+            return (
             <Link
               key={key}
-              href="/projects"
+              href={href}
+              target={isExternal ? "_blank" : undefined}
+              rel={isExternal ? "noopener noreferrer" : undefined}
               className="rounded-2xl border border-line bg-surface p-5 transition-colors hover:border-line-strong"
             >
               <span className="font-mono text-[10.5px] tracking-[0.06em] text-accent-2 uppercase">
@@ -35,7 +45,8 @@ export default function WorkTeaser() {
                 {t(`items.${key}.description`)}
               </p>
             </Link>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
