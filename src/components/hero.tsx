@@ -1,6 +1,10 @@
+import { useTranslations } from "next-intl";
+
 const stack = ["React", "Next.js", "TypeScript", "Node.js", "Python"];
 
 export default function Hero() {
+  const t = useTranslations("hero");
+
   return (
     <section className="relative overflow-hidden pt-24 pb-18">
       <div
@@ -20,16 +24,13 @@ export default function Hero() {
       <div className="relative mx-auto max-w-295 px-6 md:px-8">
         <div className="max-w-165">
           <span className="mb-4.5 block font-mono text-xs tracking-[0.09em] text-accent-2 uppercase">
-            Full-Stack Developer, moving into AI
+            {t("kicker")}
           </span>
           <h1 className="mb-5 text-[2.3rem] leading-[1.08] font-[650] tracking-[-0.025em] text-balance md:text-6xl">
-            I connect language models to systems that actually ship.
+            {t("title")}
           </h1>
           <p className="mb-8 max-w-115 text-lg leading-relaxed text-slate">
-            Full-stack engineer by background, now building toward the
-            unglamorous work that makes AI useful in production — the
-            tooling, integrations, and workflows that connect models to real
-            systems.
+            {t("description")}
           </p>
 
           <div className="mb-8.5 flex flex-wrap items-center gap-3.5">
@@ -37,13 +38,13 @@ export default function Hero() {
               href="#chat"
               className="inline-flex items-center gap-2 rounded-[10px] bg-accent px-5 py-3 text-[14.5px] font-semibold text-accent-ink"
             >
-              Chat with my AI ↓
+              {t("chatCta")}
             </a>
             <a
               href="/projects"
               className="rounded-[10px] border border-line-strong px-4.5 py-3 text-[14.5px] font-semibold text-ink"
             >
-              See projects →
+              {t("projectsCta")}
             </a>
           </div>
 

@@ -1,6 +1,10 @@
 import Link from "next/link";
+import { useTranslations } from "next-intl";
+import LocaleSwitch from "@/components/locale-switch";
 
 export default function Nav() {
+  const t = useTranslations("nav");
+
   return (
     <header className="border-b border-line">
       <div className="mx-auto flex max-w-295 items-center justify-between px-6 py-5 md:px-8">
@@ -16,23 +20,26 @@ export default function Nav() {
 
         <nav className="hidden items-center gap-7 text-[13.5px] text-slate md:flex">
           <Link href="/#chat" className="transition-colors hover:text-ink">
-            Ask the AI
+            {t("askAi")}
           </Link>
           <Link href="/projects" className="transition-colors hover:text-ink">
-            Work
+            {t("work")}
           </Link>
           <Link href="/#contact" className="transition-colors hover:text-ink">
-            Contact
+            {t("contact")}
           </Link>
         </nav>
 
-        <a
-          href="/Ernesto Aviles - Resume.pdf"
-          download="Ernesto Aviles - Resume.pdf"
-          className="rounded-full border border-line-strong px-3.5 py-2 text-[13px] font-semibold text-ink"
-        >
-          Résumé ↗
-        </a>
+        <div className="flex items-center gap-3">
+          <LocaleSwitch />
+          <a
+            href="/Ernesto Aviles - Resume.pdf"
+            download="Ernesto Aviles - Resume.pdf"
+            className="rounded-full border border-line-strong px-3.5 py-2 text-[13px] font-semibold text-ink"
+          >
+            {t("resume")}
+          </a>
+        </div>
       </div>
     </header>
   );

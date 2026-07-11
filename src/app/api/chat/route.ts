@@ -14,7 +14,8 @@ const openrouter = createOpenAICompatible({
 const MODEL = "openai/gpt-oss-20b:free";
 
 export async function POST(req: Request) {
-  const { messages }: { messages: UIMessage[] } = await req.json();
+  const { messages, locale }: { messages: UIMessage[]; locale?: string } =
+    await req.json();
 
   const profile = await readFile(
     path.join(process.cwd(), "content", "profile.md"),
@@ -29,6 +30,9 @@ export async function POST(req: Request) {
       "Answer only using the information below. If something isn't covered, say you don't have that information rather than guessing or making it up.",
       "Keep answers concise and conversational, like a knowledgeable colleague, not a résumé readout.",
       "If asked about anything unrelated to Ernesto's professional background, politely decline and steer back to his work.",
+      locale === "es"
+        ? "The visitor is browsing the site in Spanish. Respond in Spanish unless they write to you in another language."
+        : "Respond in the language the visitor writes in.",
       "",
       "--- ERNESTO'S INFO ---",
       profile,

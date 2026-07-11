@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "title": "Ernesto — Full-Stack Developer",
+    "description": "Full-stack engineer building toward AI enablement. Chat with my AI to learn about my work and experience."
+  },
+  "nav": {
+    "askAi": "Ask the AI",
+    "work": "Work",
+    "contact": "Contact",
+    "resume": "Résumé ↗"
+  },
+  "hero": {
+    "kicker": "Full-Stack Developer, moving into AI",
+    "title": "I connect language models to systems that actually ship.",
+    "description": "Full-stack engineer by background, now building toward the unglamorous work that makes AI useful in production — the tooling, integrations, and workflows that connect models to real systems.",
+    "chatCta": "Chat with my AI ↓",
+    "projectsCta": "See projects →"
+  },
+  "chat": {
+    "heading": "Ask about my work",
+    "subheading": "Answers grounded in my résumé & project notes",
+    "assistantName": "Ernesto's AI",
+    "assistantTagline": "Grounded in this site's content only",
+    "badge": "open-source model",
+    "welcome": "Ask me anything about Ernesto's experience, stack, or projects.",
+    "placeholder": "Ask about a project, my stack, or how I work…",
+    "send": "Send",
+    "smallPrint": "runs on an open-source model via OpenRouter · grounded in the info above"
+  },
+  "work": {
+    "heading": "Selected work",
+    "viewAll": "View all projects →",
+    "items": {
+      "picselectr": {
+        "tag": "Full-stack",
+        "title": "Picselectr",
+        "description": "A photo-selection tool for photographers — clients pick their event photos via a PIN-protected link. Live with a real studio's clients."
+      },
+      "aiChat": {
+        "tag": "Applied AI",
+        "title": "This portfolio's AI chat",
+        "description": "The chat on this site, grounded strictly in my résumé data — a working example of the applied-AI integration work I do, not just a claim."
+      }
+    }
+  },
+  "projects": {
+    "metaTitle": "Projects — Ernesto",
+    "metaDescription": "Selected projects — real, shipped work, with more case studies on the way.",
+    "kicker": "Selected work",
+    "title": "A few things I've built.",
+    "description": "Real, shipped work — full case studies are on the way."
+  },
+  "footer": {
+    "copyright": "© 2026 Ernesto"
+  }
+}

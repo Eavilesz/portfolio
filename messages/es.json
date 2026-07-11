@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "title": "Ernesto — Desarrollador Full-Stack",
+    "description": "Ingeniero full-stack en transición hacia la IA. Chatea con mi IA para conocer mi trabajo y experiencia."
+  },
+  "nav": {
+    "askAi": "Pregunta a la IA",
+    "work": "Trabajo",
+    "contact": "Contacto",
+    "resume": "Currículum ↗"
+  },
+  "hero": {
+    "kicker": "Desarrollador Full-Stack, en transición hacia la IA",
+    "title": "Conecto modelos de lenguaje con sistemas que realmente llegan a producción.",
+    "description": "Ingeniero full-stack de formación, ahora enfocado en el trabajo poco glamuroso que hace que la IA sea útil en producción: las herramientas, integraciones y flujos de trabajo que conectan los modelos con sistemas reales.",
+    "chatCta": "Chatea con mi IA ↓",
+    "projectsCta": "Ver proyectos →"
+  },
+  "chat": {
+    "heading": "Pregunta sobre mi trabajo",
+    "subheading": "Respuestas basadas en mi currículum y notas de proyectos",
+    "assistantName": "La IA de Ernesto",
+    "assistantTagline": "Basada únicamente en el contenido de este sitio",
+    "badge": "modelo open-source",
+    "welcome": "Pregúntame lo que quieras sobre la experiencia, el stack o los proyectos de Ernesto.",
+    "placeholder": "Pregunta sobre un proyecto, mi stack o cómo trabajo…",
+    "send": "Enviar",
+    "smallPrint": "funciona con un modelo open-source vía OpenRouter · basado en la información de arriba"
+  },
+  "work": {
+    "heading": "Trabajo seleccionado",
+    "viewAll": "Ver todos los proyectos →",
+    "items": {
+      "picselectr": {
+        "tag": "Full-stack",
+        "title": "Picselectr",
+        "description": "Una herramienta de selección de fotos para fotógrafos: los clientes eligen las fotos de su evento mediante un enlace protegido con PIN. En uso con los clientes reales de un estudio."
+      },
+      "aiChat": {
+        "tag": "IA aplicada",
+        "title": "El chat con IA de este portafolio",
+        "description": "El chat de este sitio, basado estrictamente en los datos de mi currículum: un ejemplo real del trabajo de integración de IA aplicada que hago, no solo una afirmación."
+      }
+    }
+  },
+  "projects": {
+    "metaTitle": "Proyectos — Ernesto",
+    "metaDescription": "Proyectos seleccionados: trabajo real y en producción, con más casos de estudio en camino.",
+    "kicker": "Trabajo seleccionado",
+    "title": "Algunas cosas que he construido.",
+    "description": "Trabajo real y en producción — los casos de estudio completos están en camino."
+  },
+  "footer": {
+    "copyright": "© 2026 Ernesto"
+  }
+}

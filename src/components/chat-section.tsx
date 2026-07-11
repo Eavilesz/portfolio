@@ -4,19 +4,7 @@ import { useState, type FormEvent } from "react";
 import { useChat } from "@ai-sdk/react";
 import { DefaultChatTransport, isTextUIPart, type UIMessage } from "ai";
 import Markdown from "react-markdown";
-
-const initialMessages: UIMessage[] = [
-  {
-    id: "welcome",
-    role: "assistant",
-    parts: [
-      {
-        type: "text",
-        text: "Ask me anything about Ernesto's experience, stack, or projects.",
-      },
-    ],
-  },
-];
+import { useLocale, useTranslations } from "next-intl";
 
 function messageText(message: UIMessage) {
   return message.parts
@@ -26,10 +14,11 @@ function messageText(message: UIMessage) {
 }
 
 export default function ChatSection() {
+  const t = useTranslations("chat");
+  const locale = useLocale();
   const [input, setInput] = useState("");
   const { messages, sendMessage, status } = useChat({
     transport: new DefaultChatTransport({ api: "/api/chat" }),
-    messages: initialMessages,
   });
 
   const isBusy = status === "submitted" || status === "streaming";
@@ -37,7 +26,7 @@ export default function ChatSection() {
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
     if (!input.trim() || isBusy) return;
-    sendMessage({ text: input });
+    sendMessage({ text: input }, { body: { locale } });
     setInput("");
   }
 
@@ -46,11 +35,9 @@ export default function ChatSection() {
       <div className="mx-auto max-w-295">
         <div className="mb-4.5 flex items-baseline justify-between">
           <h2 className="text-[1.4rem] font-[650] tracking-[-0.01em]">
-            Ask about my work
+            {t("heading")}
           </h2>
-          <span className="text-[13.5px] text-slate">
-            Answers grounded in my résumé &amp; project notes
-          </span>
+          <span className="text-[13.5px] text-slate">{t("subheading")}</span>
         </div>
 
         <div className="relative">
@@ -63,18 +50,26 @@ export default function ChatSection() {
               <div className="flex items-center gap-3">
                 <span className="h-2 w-2 rounded-full bg-emerald-500 ring-3 ring-emerald-500/20" />
                 <div>
-                  <div className="text-sm font-semibold">Ernesto&apos;s AI</div>
+                  <div className="text-sm font-semibold">
+                    {t("assistantName")}
+                  </div>
                   <div className="mt-0.5 text-xs text-slate">
-                    Grounded in this site&apos;s content only
+                    {t("assistantTagline")}
                   </div>
                 </div>
               </div>
               <span className="rounded-full border border-accent/25 px-2.5 py-1 font-mono text-[11px] text-slate">
-                open-source model
+                {t("badge")}
               </span>
             </div>
 
             <div className="flex min-h-55 flex-col gap-4 px-5.5 py-6.5">
+              <div className="flex justify-start">
+                <div className="max-w-[72%] rounded-xl rounded-bl-[3px] border border-line bg-surface-2 px-3.75 py-3 text-sm leading-[1.55]">
+                  {t("welcome")}
+                </div>
+              </div>
+
               {messages.map((message) => {
                 const text = messageText(message);
                 if (!text) return null;
@@ -118,13 +113,13 @@ export default function ChatSection() {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 disabled={isBusy}
-                placeholder="Ask about a project, my stack, or how I work…"
+                placeholder={t("placeholder")}
                 className="flex-1 rounded-[10px] border border-line-strong bg-bg px-3.5 py-2.75 font-mono text-[13.5px] text-ink placeholder:text-slate-soft focus:outline-none disabled:opacity-60"
               />
               <button
                 type="submit"
                 disabled={isBusy || !input.trim()}
-                aria-label="Send"
+                aria-label={t("send")}
                 className="flex h-9.5 w-9.5 shrink-0 items-center justify-center rounded-[10px] bg-accent text-accent-ink disabled:opacity-50"
               >
                 ↑
@@ -133,7 +128,7 @@ export default function ChatSection() {
           </div>
         </div>
         <p className="mt-3.5 font-mono text-[11.5px] text-slate-soft">
-          runs on an open-source model via OpenRouter · grounded in the info above
+          {t("smallPrint")}
         </p>
       </div>
     </section>
