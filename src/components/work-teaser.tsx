@@ -5,7 +5,7 @@ const projectKeys = ["picselectr", "aiChat"] as const;
 
 const projectLinks: Record<(typeof projectKeys)[number], string> = {
   picselectr: "https://github.com/Eavilesz/picselectr#picselectr",
-  aiChat: "/projects",
+  aiChat: "https://github.com/Eavilesz/portfolio#ernesto-avil%C3%A9s--portfolio",
 };
 
 export default function WorkTeaser() {

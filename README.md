@@ -1,12 +1,12 @@
 # Ernesto Avilés — Portfolio
 
-**[ernestoaviles.dev](https://www.ernestoaviles.dev/)** · [Resume PDF](public/Ernesto%20Aviles%20-%20Resume.pdf) · [LinkedIn](https://www.linkedin.com/in/ernesto-aviles-zavala/) · [GitHub](https://github.com/Eavilesz)
+**<a href="https://www.ernestoaviles.dev/" target="_blank" rel="noopener noreferrer">ernestoaviles.dev</a>** · [Resume PDF](public/Ernesto%20Aviles%20-%20Resume.pdf) · <a href="https://www.linkedin.com/in/ernesto-aviles-zavala/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
 
 A full-stack, bilingual portfolio site with a twist: instead of a static résumé, it embeds an AI chat that answers recruiter questions live, grounded strictly in my actual experience — a working demo of applied-AI integration, not just a bullet point on a resume.
 
-| ![Home page — hero and AI chat](public/screenshots/home-hero.png) | ![AI chat answering a question about a project, grounded in profile.md](public/screenshots/chat-demo.png) |
-| --- | --- |
-| ![Projects page listing Picselectr and the AI chat](public/screenshots/projects.png) | |
+| ![Home page — hero and AI chat](public/screenshots/home-hero.png)                    | ![AI chat answering a question about a project, grounded in profile.md](public/screenshots/chat-demo.png) |
+| ------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------- |
+| ![Projects page listing Picselectr and the AI chat](public/screenshots/projects.png) |                                                                                                           |
 
 ## Why this repo is more than a template
 
@@ -72,4 +72,4 @@ messages/
 
 - Email: ernesto-av@hotmail.com
 - GitHub: [github.com/Eavilesz](https://github.com/Eavilesz)
-- LinkedIn: [linkedin.com/in/ernesto-aviles-zavala](https://www.linkedin.com/in/ernesto-aviles-zavala/)
+- LinkedIn: <a href="https://www.linkedin.com/in/ernesto-aviles-zavala/" target="_blank" rel="noopener noreferrer">linkedin.com/in/ernesto-aviles-zavala</a>
