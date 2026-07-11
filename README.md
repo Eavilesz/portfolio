@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ernesto Avilés — Portfolio
 
-## Getting Started
+**[ernestoaviles.dev](https://www.ernestoaviles.dev/)** · [Resume PDF](public/Ernesto%20Aviles%20-%20Resume.pdf) · [LinkedIn](https://www.linkedin.com/in/ernesto-aviles-zavala/) · [GitHub](https://github.com/Eavilesz)
 
-First, run the development server:
+A full-stack, bilingual portfolio site with a twist: instead of a static résumé, it embeds an AI chat that answers recruiter questions live, grounded strictly in my actual experience — a working demo of applied-AI integration, not just a bullet point on a resume.
+
+![Home page — hero and AI chat](public/screenshots/home-hero.png)
+
+## Why this repo is more than a template
+
+Most portfolios are a static page. This one is a small full-stack app that demonstrates the skills it describes:
+
+- **Grounded AI chat, not a chatbot wrapper.** [`src/app/api/chat/route.ts`](src/app/api/chat/route.ts) streams responses from an LLM via [Vercel AI SDK](https://sdk.vercel.ai/) over an OpenAI-compatible endpoint ([OpenRouter](https://openrouter.ai/)), with the system prompt built from [`content/profile.md`](content/profile.md) at request time. The model is instructed to answer only from that content and decline anything else — no hallucinated experience.
+- **Real internationalization**, not a translated title tag. Every string is routed through [`next-intl`](https://next-intl.dev/) with locale-aware cookies and middleware, fully supporting English and Spanish ([`messages/en.json`](messages/en.json) / [`messages/es.json`](messages/es.json)).
+- **Modern App Router architecture** using React Server Components, streaming, and Next.js 16 conventions rather than a bolted-on SPA.
+
+![AI chat answering a question about a project, grounded in profile.md](public/screenshots/chat-demo.png)
+
+## Tech stack
+
+| Layer      | Choice                                                                                                                              |
+| ---------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| Framework  | [Next.js 16](https://nextjs.org/) (App Router, React 19)                                                                            |
+| Language   | TypeScript                                                                                                                          |
+| Styling    | Tailwind CSS v4                                                                                                                     |
+| AI / LLM   | [Vercel AI SDK](https://sdk.vercel.ai/) (`ai`, `@ai-sdk/react`, `@ai-sdk/openai-compatible`) + [OpenRouter](https://openrouter.ai/) |
+| i18n       | next-intl (English / Spanish)                                                                                                       |
+| Validation | Zod                                                                                                                                 |
+| Deployment | Vercel                                                                                                                              |
+
+## Getting started
 
 ```bash
+git clone https://github.com/Eavilesz/portfolio.git
+cd portfolio
+npm install
+cp .env.example .env   # add your OPENROUTER_API_KEY (free at openrouter.ai/keys)
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run lint    # ESLint
+npm run build   # production build
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project structure
 
-## Learn More
+```
+src/
+  app/
+    api/chat/route.ts   # streaming chat endpoint, grounded in content/profile.md
+    projects/page.tsx   # case-study listing
+    page.tsx            # home: hero, AI chat, work teaser
+  components/            # Hero, ChatSection, Nav, Footer, locale switcher
+  i18n/                   # next-intl config, locale actions & middleware glue
+content/
+  profile.md              # single source of truth for the AI chat's knowledge
+messages/
+  en.json / es.json        # UI copy per locale
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Featured projects
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+![Projects page listing Picselectr and the AI chat](public/screenshots/projects.png)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Picselectr** — a photo-selection tool for photographers: clients get a PIN-protected link to choose event photos across tiered packages. Built with Next.js, Supabase (auth/DB/RLS), and Cloudflare R2. In active production use by a real photography studio.
+- **This portfolio's AI chat** — see above.
 
-## Deploy on Vercel
+## Contact
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Email: ernesto-av@hotmail.com
+- GitHub: [github.com/Eavilesz](https://github.com/Eavilesz)
+- LinkedIn: [linkedin.com/in/ernesto-aviles-zavala](https://www.linkedin.com/in/ernesto-aviles-zavala/)
