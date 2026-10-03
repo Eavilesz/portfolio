@@ -11,7 +11,7 @@ const openrouter = createOpenAICompatible({
   apiKey: process.env.OPENROUTER_API_KEY,
 });
 
-const MODEL = "openai/gpt-oss-20b:free";
+const MODEL = "qwen/qwen3.8-27b:free";
 
 export async function POST(req: Request) {
   const { messages, locale }: { messages: UIMessage[]; locale?: string } =

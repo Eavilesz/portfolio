@@ -25,6 +25,7 @@
     "welcome": "Pregúntame lo que quieras sobre la experiencia, el stack o los proyectos de Ernesto.",
     "placeholder": "Pregunta sobre un proyecto, mi stack o cómo trabajo…",
     "send": "Enviar",
+    "error": "Algo salió mal al contactar a la IA. Inténtalo de nuevo en un momento.",
     "smallPrint": "funciona con un modelo open-source vía OpenRouter · basado en la información de arriba"
   },
   "work": {

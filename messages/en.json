@@ -25,6 +25,7 @@
     "welcome": "Ask me anything about Ernesto's experience, stack, or projects.",
     "placeholder": "Ask about a project, my stack, or how I work…",
     "send": "Send",
+    "error": "Something went wrong reaching the AI. Please try again in a moment.",
     "smallPrint": "runs on an open-source model via OpenRouter · grounded in the info above"
   },
   "work": {

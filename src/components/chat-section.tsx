@@ -17,7 +17,7 @@ export default function ChatSection() {
   const t = useTranslations("chat");
   const locale = useLocale();
   const [input, setInput] = useState("");
-  const { messages, sendMessage, status } = useChat({
+  const { messages, sendMessage, status, error } = useChat({
     transport: new DefaultChatTransport({ api: "/api/chat" }),
   });
 
@@ -93,6 +93,14 @@ export default function ChatSection() {
                   </div>
                 );
               })}
+
+              {error && !isBusy && (
+                <div role="alert" className="flex justify-start">
+                  <div className="max-w-[72%] rounded-xl rounded-bl-[3px] border border-red-500/30 bg-surface-2 px-3.75 py-3 text-sm leading-[1.55] text-red-500">
+                    {t("error")}
+                  </div>
+                </div>
+              )}
 
               {isBusy && (
                 <div className="flex justify-start">
