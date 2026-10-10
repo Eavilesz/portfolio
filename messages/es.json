@@ -26,7 +26,8 @@
     "placeholder": "Pregunta sobre un proyecto, mi stack o cómo trabajo…",
     "send": "Enviar",
     "error": "Algo salió mal al contactar a la IA. Inténtalo de nuevo en un momento.",
-    "smallPrint": "funciona con un modelo open-source vía OpenRouter · basado en la información de arriba"
+    "rateLimited": "Estás enviando mensajes muy rápido. Espera unos minutos e inténtalo de nuevo.",
+    "smallPrint": "funciona con Claude Haiku vía OpenRouter · basado en la información de arriba"
   },
   "work": {
     "heading": "Trabajo seleccionado",

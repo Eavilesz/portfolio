@@ -26,7 +26,8 @@
     "placeholder": "Ask about a project, my stack, or how I work…",
     "send": "Send",
     "error": "Something went wrong reaching the AI. Please try again in a moment.",
-    "smallPrint": "runs on an open-source model via OpenRouter · grounded in the info above"
+    "rateLimited": "You're sending messages a bit fast. Please wait a few minutes and try again.",
+    "smallPrint": "runs on Claude Haiku via OpenRouter · grounded in the info above"
   },
   "work": {
     "heading": "Selected work",

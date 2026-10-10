@@ -97,7 +97,7 @@ export default function ChatSection() {
               {error && !isBusy && (
                 <div role="alert" className="flex justify-start">
                   <div className="max-w-[72%] rounded-xl rounded-bl-[3px] border border-red-500/30 bg-surface-2 px-3.75 py-3 text-sm leading-[1.55] text-red-500">
-                    {t("error")}
+                    {error.message.includes("rate_limited") ? t("rateLimited") : t("error")}
                   </div>
                 </div>
               )}
@@ -121,6 +121,7 @@ export default function ChatSection() {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 disabled={isBusy}
+                maxLength={500}
                 placeholder={t("placeholder")}
                 className="flex-1 rounded-[10px] border border-line-strong bg-bg px-3.5 py-2.75 font-mono text-[13.5px] text-ink placeholder:text-slate-soft focus:outline-none disabled:opacity-60"
               />
